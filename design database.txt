@@ -1,0 +1,46 @@
+projek erdo 
+SERUMPUN RADIO
+
+UI bebas(referensi serumpun radio.com)
+yang penting ada live radio nya
+berita terupdate dihalaman utama
+crew
+
+navbar(Home,news,info,Music,kontak,)
+HOME
+-baner
+-radio life
+-news update
+-news
+-promosi
+-footer
+
+News
+Politik
+Olahrga
+Ekonomi
+Kesehatan
+Musik
+
+INFO
+Crew                 nama, foto, jabatan
+
+Kontak
+company profile
+
+Music
+Berita music
+
+
+HALAMAN ADMIN
+CRUD NB:Kategori(dropdown [kesehatan,polotik,ekonomi,olahraga])
+is update (dropdown [true,false])
+type(dropdown [news,promo])
+id
+title
+desk
+date month year
+image
+
+
+ 
