@@ -28,7 +28,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a href="{{ url('/berita/show') }}" class="nav-link collapsed">
+        <a href="{{ url('/kategori') }}" class="nav-link collapsed">
             <i class="fas fa-fw fa-cog"></i>
             <span>Berita</span>
         </a>
@@ -36,7 +36,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a href="{{ url('/kategori/show') }}" class="nav-link collapsed">
+        <a href="{{ url('/show-all-product') }}" class="nav-link collapsed">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Kategori</span>
         </a>

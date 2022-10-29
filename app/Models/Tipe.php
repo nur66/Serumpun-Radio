@@ -11,7 +11,7 @@ class Tipe extends Model
     protected $table = 'tipes';
     protected $guarded = [];
 
-    public function beritaObj()
+    public function berita()
     {
         return $this->hasMany(Berita::class);
     }

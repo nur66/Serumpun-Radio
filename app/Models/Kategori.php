@@ -11,7 +11,7 @@ class Kategori extends Model
     protected $table = 'kategoris';
     protected $guarded = [];
 
-    public function beritaObj()
+    public function berita()
     {
         return $this->hasMany(Berita::class);
     }

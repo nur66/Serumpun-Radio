@@ -1,4 +1,4 @@
-@include('admin.kategori.component.header')
+@include('admin.krew.component.header')
 
 <body id="page-top">
 
@@ -6,11 +6,11 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('admin.kategori.component.sidebar')
+        @include('admin.krew.component.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        @include('admin.kategori.content.contentAdd')
+        @include('admin.krew.content.contentShow')
         <!-- End of Content Wrapper -->
 
     </div>

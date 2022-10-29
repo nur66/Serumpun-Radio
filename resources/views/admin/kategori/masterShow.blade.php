@@ -10,7 +10,7 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        @include('admin.kategori.content.contentAdd')
+        @include('admin.kategori.content.contentShow')
         <!-- End of Content Wrapper -->
 
     </div>

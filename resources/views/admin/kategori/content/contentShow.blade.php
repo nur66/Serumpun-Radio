@@ -204,29 +204,75 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        {{-- @extends('layouts.app') 
-
-@section('content') --}}
         <div class="container-fluid">
-            <!--d-flex justify-content-center -->
-            <div class="col-md-8">
-                <h2>Tambah Kategori</h2>
-                <form action="{{ url('/kategori/add-store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="nama">Nama Kategori</label>
-                        <input type="text" name="nama" id="" class="form-control" placeholder="nama kategori..."
-                            required>
-                    </div>
 
-                    <div class="input-group">
-                        <input type="submit" value="Save" class="btn btn-success"> &nbsp;
-                        <input type="reset" value="Reset" class="btn btn-danger">
-                    </div>
-                </form>
+            <!-- Page Heading -->
+            {{-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+            <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                For more information about DataTables, please visit the <a target="_blank"
+                    href="https://datatables.net">official DataTables documentation</a>.</p> --}}
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Serumpun Radio</h1>
+                <a href="/kategori/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i>Tambah Kategori</a>
             </div>
-        </div>
 
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Kategori</h6>
+                </div>
+
+                {{-- <div class="row justify-content-end my-3 mr-3">
+                    <form action="/show-all-product/search">
+                        <div class="input-group justify-content-end">
+                            <input type="text" class="form-control" placeholder="Search..." name="search"
+                                value="{{ request('search') }}">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div> --}}
+
+                <div class="mx-3">
+                    <table class="table table-striped table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kategori</th>
+                                <th>Tanggal Input</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tfoot class="text-center">
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kategori</th>
+                                <th>Tanggal Input</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <?php $no = 1; ?>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $item['nama_kategori'] }}</td>
+                                    <td>{{ $item['updated_at'] }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ url('/kategori/edit') }}/{{ $item['id'] }}"
+                                            class="btn btn-success">Ubah</a> &nbsp;
+                                        <a href="{{ url('/kategori/delete') }}/{{ $item['id'] }}"
+                                            class="btn btn-danger"
+                                            onclick="return confirm('Apakah kamu yakin?');">Hapus</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
         <!-- /.container-fluid -->
 
     </div>

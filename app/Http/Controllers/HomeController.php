@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,11 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data = [];
+
+        $berita = Berita::with([
+            'kategori', 'tipe'
+        ])->get();
+
         return view('layouts.master');
     }
 
     public function tesRadio()
     {
+
         return view('radio');
     }
 }

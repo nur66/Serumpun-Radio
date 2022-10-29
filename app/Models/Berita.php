@@ -11,12 +11,12 @@ class Berita extends Model
     protected $table = 'beritas';
     protected $guarded = [];
 
-    public function kategoriObj()
+    public function kategori()
     {
         return $this->belongsTo(Kategori::class);
     }
 
-    public function tipeObj()
+    public function tipe()
     {
         return $this->belongsTo(Tipe::class);
     }
