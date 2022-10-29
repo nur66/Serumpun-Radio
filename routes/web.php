@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/tes-radio', [HomeController::class, 'tesRadio'])->name('radio');
+
+// Kategori
+Route::prefix('kategori')->group(function () {
+    Route::get('/add', [KategoriController::class, 'add']);
+    Route::post('/add-store', [KategoriController::class, 'addStore']);
+});
