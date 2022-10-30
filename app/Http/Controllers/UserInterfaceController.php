@@ -9,8 +9,30 @@ class UserInterfaceController extends Controller
 {
     public function home(Request $request)
     {
-        $berita = Berita::all();
-        return view('ui.landing-page')->with('berita', $berita);
+        $result = $politik = $musik = $olahraga = $ekonomi = $kesehatan = $headline = $populer = $lates = [];
+        $politik = Berita::where('kategori_id', 1)->limit(4)->get();
+        $musik = Berita::where('kategori_id', 2)->limit(4)->get();
+        $olahraga = Berita::where('kategori_id', 5)->limit(4)->get();
+        $ekonomi = Berita::where('kategori_id', 4)->limit(4)->get();
+        $kesehatan = Berita::where('kategori_id', 3)->limit(4)->get();
+
+        $headline = Berita::where('tipe', 'Headline News')->orderBy('created_at', 'DESC')->get();
+        $populer = Berita::where('tipe', 'Popular News')->orderBy('created_at', 'DESC')->get();
+        $lates = Berita::where('tipe', 'Lates News')->orderBy('created_at', 'DESC')->get();
+        // dd($politik);
+
+        $result = [
+            'politik' => $politik,
+            'musik' => $musik,
+            'olahraga' => $olahraga,
+            'ekonomi' => $ekonomi,
+            'kesehatan' => $kesehatan,
+            'headline' => $headline,
+            'populer' => $populer,
+            'lates' => $lates
+        ];
+
+        return view('ui.landing-page')->with('data', $result);
     }
 
     public function berita(Request $request)
@@ -31,5 +53,18 @@ class UserInterfaceController extends Controller
     public function musik()
     {
         return view('ui.musik');
+    }
+
+
+
+    //_________________________________________Detail__________________________________________//
+    public function detailNews(Request $request)
+    {
+        $id = $request->id;
+
+        $data = Berita::where('id', $id)->first();
+        // dd($data['judul']);
+
+        return view('ui.berita')->with('data', $data);
     }
 }
