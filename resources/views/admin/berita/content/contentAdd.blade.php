@@ -222,22 +222,40 @@
                             required>
                     </div>
 
+                    
                     <div class="form-group">
                         <label for="nama">Kategori</label>
-                        <input type="text" name="kategori" class="form-control" placeholder="kategori..."
-                            required>
+                        {{-- <input type="text" name="kategori" class="form-control" placeholder="kategori..."
+                            required> --}}
+                        
+                        <select name="kategori" id="kategori" class="form-control">
+                            @foreach($kategori as $row)
+                            <option value="{{ $row->id }}">{{ $row->nama_kategori }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="nama">Tipe</label>
+                        {{-- <label for="nama">Tipe</label>
                         <input type="text" name="tipe" class="form-control" placeholder="tipe..."
-                            required>
+                            required> --}}
+                        <label for="tipe">Tipe</label>
+                        <select name="tipe" id="tipe" class="form-control">
+                            {{-- @foreach($toko as $item)
+                            <option value="{{ $item->id }}">{{ $item->namaToko }}</option>
+                            @endforeach --}}
+                            <option value="Headline News">Headline News</option>
+                            <option value="Popular News">Popular News</option>
+                            <option value="Lates News">Lates News</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="nama">Gambar</label>
+                        {{-- <label for="nama">Gambar</label>
                         <input type="text" name="gambar" class="form-control" placeholder="gambar..."
-                            required>
+                            required> --}}
+                        <label for="gambar">Gambar</label>
+                        <input type="file" accept="image/*" name="gambar" id="gambar"  required>
                     </div>
 
                     <div class="input-group">

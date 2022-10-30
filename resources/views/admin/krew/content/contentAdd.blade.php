@@ -206,14 +206,26 @@
         <div class="container-fluid">
             <!--d-flex justify-content-center -->
             <div class="col-md-8">
-                <h2>Tambah Kategori</h2>
-                <form action="{{ url('/kategori/add-store') }}" method="post" enctype="multipart/form-data">
+                <h2>Tambah Krew</h2>
+                <form action="{{ url('/krew/add-store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    {{-- <input type="hidden" id="id"> --}}
                     <div class="form-group">
-                        <label for="nama">Nama Kategori</label>
-                        <input type="text" name="nama" class="form-control" placeholder="nama kategori..."
-                            required>
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" id="jabatan"
+                            class="form-control" placeholder="nama..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jabatan">Jabatan</label>
+                        <input type="text" name="jabatan" id="jabatan"
+                            class="form-control" placeholder="jabatan..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto">Foto</label>
+                        <input type="file" accept="image/*" name="foto" id="foto"  required>
+                        {{-- <input type="text" name="foto" id="foto"
+                            class="form-control" placeholder="foto..." required> --}}
                     </div>
 
                     <div class="input-group">

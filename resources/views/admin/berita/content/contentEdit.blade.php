@@ -209,8 +209,8 @@
                 <h2>Edit Berita</h2>
                 <form action="{{ url('/berita/edit-store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    
-                    @foreach($berita as $row)
+                    {{-- <?php dd($data); ?> --}}
+                    @foreach($data['berita'] as $row)
                     {{-- {{ dd($row->nama_kategori); }} --}}
                     <input type="hidden" name="id" value="{{ $row->id }}">
                     <div class="form-group">
@@ -227,14 +227,22 @@
 
                     <div class="form-group">
                         <label for="nama">Kategori</label>
-                        <input value="{{ $row->kategori }}" type="text" name="kategori" id="kategori"
-                            class="form-control" placeholder="kategori..." required>
+                        {{-- <input value="{{ $row->kategori }}" type="text" name="kategori" id="kategori"
+                            class="form-control" placeholder="kategori..." required> --}}
+                        <select name="kategori" id="kategori" class="form-control">
+                        @foreach($data['kategori'] as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                        @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="nama">Tipe</label>
-                        <input value="{{ $row->tipe }}" type="text" name="tipe" id="tipe"
-                            class="form-control" placeholder="tipe..." required>
+                        <label for="tipe">Tipe</label>
+                        <select name="tipe" id="tipe" class="form-control">
+                            <option value="Headline News">Headline News</option>
+                            <option value="Popular News">Popular News</option>
+                            <option value="Lates News">Lates News</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

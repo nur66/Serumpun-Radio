@@ -2,32 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use Illuminate\Http\Request;
 
 class UserInterfaceController extends Controller
 {
     public function home(Request $request)
     {
-        return view('landing-page');
+        $berita = Berita::all();
+        return view('ui.landing-page')->with('berita', $berita);
     }
 
     public function berita(Request $request)
     {
-        return view('berita');
+        return view('ui.berita');
     }
 
     public function kontak()
     {
-        return view('kontak');
+        return view('ui.kontak');
     }
 
     public function info()
     {
-        return view('info');
+        return view('ui.info');
     }
 
     public function musik()
     {
-        return view('musik');
+        return view('ui.musik');
     }
 }

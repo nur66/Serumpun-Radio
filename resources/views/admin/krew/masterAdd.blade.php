@@ -6,11 +6,11 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('admin.kategori.component.sidebar')
+        @include('layouts.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        @include('admin.kategori.content.contentAdd')
+        @include('admin.krew.content.contentAdd')
         <!-- End of Content Wrapper -->
 
     </div>

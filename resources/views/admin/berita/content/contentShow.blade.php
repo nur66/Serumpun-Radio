@@ -259,12 +259,13 @@
                             <?php $no = 1; ?>
                             @foreach ($berita as $item)
                                 <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>{{ $item['judul'] }}</td>
-                                    <td>{{ $item['kategori'] }}</td>
-                                    <td>{{ $item['tipe'] }}</td>
-                                    <td>{{ $item['image'] }}</td>
-                                    <td class="text-center">
+                                    <td class="col-lg-1">{{ $no++ }}</td>
+                                    <td class="col-lg-5">{{ $item['judul'] }}</td>
+                                    <td class="col-lg-1">{{ $item['kategori'] }}</td>
+                                    <td class="col-lg-1">{{ $item['tipe'] }}</td>
+                                    {{-- <td>{{ $item['image'] }}</td> --}}
+                                    <td class="text-center col-lg-2"><img src="{{ asset('/gambar') }}/{{ $item->image }}" alt="" width="100px" height="100px"></td>
+                                    <td class="text-center col-lg-2">
                                         <a href="{{ url('/berita/edit') }}/{{ $item['id'] }}"
                                             class="btn btn-success">Ubah</a> &nbsp;
                                         <a href="{{ url('/berita/delete') }}/{{ $item['id'] }}"

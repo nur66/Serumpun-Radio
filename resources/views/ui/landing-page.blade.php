@@ -76,7 +76,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4">
                         <div class="b-logo">
-                            <a href="/testing">
+                            <a href="/">
                                 <img src="img/logo.png" alt="Logo">
                             </a>
                         </div>
@@ -107,12 +107,11 @@
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="/testing" class="nav-item nav-link active">HOME</a>
+                            <a href="/" class="nav-item nav-link active">HOME</a>
                             <a href="/berita" class="nav-item nav-link active">BERITA</a>
-                            <a href="/testing" class="nav-item nav-link active">MUSIK</a>
+                            <a href="/musik" class="nav-item nav-link active">MUSIK</a>
                             <!-- <div class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
               <div class="dropdown-menu">
@@ -146,7 +145,7 @@
                                 <div class="tn-img">
                                     <img src="img/news-450x350-1.jpg" />
                                     <div class="tn-title">
-                                        <a href="">Lorem ipsum dolor sit amet</a>
+                                        <a href="">Nur 1</a>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +153,7 @@
                                 <div class="tn-img">
                                     <img src="img/news-450x350-2.jpg" />
                                     <div class="tn-title">
-                                        <a href="">Integer hendrerit elit eget purus sodales maximus</a>
+                                        <a href="">Nur 2</a>
                                     </div>
                                 </div>
                             </div>

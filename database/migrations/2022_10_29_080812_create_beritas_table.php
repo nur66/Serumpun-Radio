@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('deskripsi')->default('Deskripsi');
             $table->string('kategori',50)->default('Poitik');
             $table->longText('image')->nullable();
-            $table->foreignId('tipe_id');
+            $table->enum('tipe', ['Headline News', 'Popular News', 'Lates News']);
             $table->foreignId('kategori_id');
             $table->timestamps();
         });

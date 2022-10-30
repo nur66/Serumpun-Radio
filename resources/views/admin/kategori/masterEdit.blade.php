@@ -6,7 +6,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('admin.kategori.component.sidebar')
+        @include('layouts.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->

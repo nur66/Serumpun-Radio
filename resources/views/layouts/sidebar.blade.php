@@ -43,7 +43,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="{{ url('/show-all-product') }}" class="nav-link collapsed">
+        <a href="{{ url('/krew/show') }}" class="nav-link collapsed">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Krew</span>
         </a>

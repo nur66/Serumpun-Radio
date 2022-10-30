@@ -206,18 +206,30 @@
         <div class="container-fluid">
             <!--d-flex justify-content-center -->
             <div class="col-md-8">
-                <h2>Edit Kategori</h2>
-                <form action="{{ url('/kategori/edit-store') }}" method="post" enctype="multipart/form-data">
+                <h2>Edit Krew</h2>
+                <form action="{{ url('/krew/edit-store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     
                     {{-- {{ dd($kategori) }} --}}
-                    @foreach($kategori as $row)
+                    @foreach($krew as $row)
                     {{-- {{ dd($row->nama_kategori); }} --}}
                     <input type="hidden" name="id" value="{{ $row->id }}">
                     <div class="form-group">
-                        <label for="nama">Nama Barang</label>
-                        <input value="{{ $row->nama_kategori }}" type="text" name="nama" id="kategori"
-                            class="form-control" placeholder="nama barang..." required>
+                        <label for="nama">Nama</label>
+                        <input value="{{ $row->nama }}" type="text" name="nama" id="jabatan"
+                            class="form-control" placeholder="nama..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jabatan">Jabatan</label>
+                        <input value="{{ $row->jabatan }}" type="text" name="jabatan" id="jabatan"
+                            class="form-control" placeholder="jabatan..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto">Foto</label>
+                        <input value="{{ $row->foto }}" type="text" name="foto" id="foto"
+                            class="form-control" placeholder="foto..." required>
                     </div>
                     @endforeach
 

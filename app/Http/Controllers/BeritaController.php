@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kategori;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,8 +25,9 @@ class BeritaController extends Controller
     public function add()
     {
         if (Auth::user()){
+            $kategori = Kategori::get();
 
-            return view('admin.berita.masterAdd');
+            return view('admin.berita.masterAdd')->with('kategori', $kategori);
         }else{
             return redirect('/');
         }
@@ -34,12 +36,19 @@ class BeritaController extends Controller
     public function addStore(Request $request)
     {
         if (Auth::user()){
+            $this->validate($request, [
+                'gambar' => 'required | image | mimes:jpg,jpeg,png,svg,gif | max:20000000'
+            ]);
+            $foto = $request->file('gambar');
+            $nama_foto = $foto->getClientOriginalName();
+            $simpan_foto = time().$nama_foto;
+            $foto->move(('gambar'), $simpan_foto);
 
             Berita::create([
                 'judul' => $request->judul,
                 'deskripsi' => $request->deskripsi,
-                'image' => $request->gambar,
-                'tipe_id' => $request->tipe,
+                'image' => $simpan_foto,
+                'tipe' => $request->tipe,
                 'kategori_id' => $request->kategori
             ]);
 
@@ -52,12 +61,19 @@ class BeritaController extends Controller
     public function edit(Request $request)
     {
         if (Auth::user()){
+            $result = [];
             $id = $request->id;
+            $kategori = Kategori::all();
 
-            $result = Berita::where('id', $id)->get();
+            $berita = Berita::where('id', $id)->get();
+
+            $result = [
+                'kategori' => $kategori,
+                'berita' => $berita
+            ];
 
             return view('admin.berita.masterEdit', [
-                'berita' => $result
+                'data' => $result
             ]);
             // return redirect('/berita/show');
         }else{
@@ -68,12 +84,20 @@ class BeritaController extends Controller
     public function editStore(Request $request)
     {
         if (Auth::user()){
+            $this->validate($request, [
+                'gambar' => 'required | image | mimes:jpg,jpeg,png,svg,gif | max:20000000'
+            ]);
+            $foto = $request->file('gambar');
+            $nama_foto = $foto->getClientOriginalName();
+            $simpan_foto = time().$nama_foto;
+            $foto->move(('gambar'), $simpan_foto);
+
             $now = Carbon::now()->format('d-m-Y');
             Berita::where('id', $request->id)->update([
                 'judul' => $request->judul,
                 'deskripsi' => $request->deskripsi,
-                'image' => $request->gambar,
-                'tipe_id' => $request->tipe,
+                'image' => $simpan_foto,
+                'tipe' => $request->tipe,
                 'kategori_id' => $request->kategori
             ]);
             return redirect('/berita/show');

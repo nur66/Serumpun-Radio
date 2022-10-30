@@ -213,14 +213,14 @@
                     href="https://datatables.net">official DataTables documentation</a>.</p> --}}
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Serumpun Radio</h1>
-                <a href="/kategori/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                        class="fas fa-download fa-sm text-white-50"></i>Tambah Kategori</a>
+                <a href="/krew/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i>Tambah Krew</a>
             </div>
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Daftar Kategori</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Krew</h6>
                 </div>
 
                 {{-- <div class="row justify-content-end my-3 mr-3">
@@ -238,16 +238,18 @@
                         <thead class="text-center">
                             <tr>
                                 <th>No</th>
-                                <th>Nama Kategori</th>
-                                <th>Tanggal Input</th>
+                                <th>Nama</th>
+                                <th>Jabatan</th>
+                                <th>Foto</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot class="text-center">
                             <tr>
                                 <th>No</th>
-                                <th>Nama Kategori</th>
-                                <th>Tanggal Input</th>
+                                <th>Nama</th>
+                                <th>Jabatan</th>
+                                <th>Foto</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -256,12 +258,14 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $item['nama_kategori'] }}</td>
-                                    <td>{{ $item['updated_at'] }}</td>
+                                    <td>{{ $item['nama'] }}</td>
+                                    <td>{{ $item['jabatan'] }}</td>
+                                    {{-- <td>{{ $item['foto'] }}</td> --}}
+                                    <td class="text-center"><img src="{{ asset('/foto') }}/{{ $item->foto }}" alt="" width="100px" height="100px"></td>
                                     <td class="text-center">
-                                        <a href="{{ url('/kategori/edit') }}/{{ $item['id'] }}"
+                                        <a href="{{ url('/krew/edit') }}/{{ $item['id'] }}"
                                             class="btn btn-success">Ubah</a> &nbsp;
-                                        <a href="{{ url('/kategori/delete') }}/{{ $item['id'] }}"
+                                        <a href="{{ url('/krew/delete') }}/{{ $item['id'] }}"
                                             class="btn btn-danger"
                                             onclick="return confirm('Apakah kamu yakin?');">Hapus</a>
                                     </td>
