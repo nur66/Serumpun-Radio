@@ -4,6 +4,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KrewController;
+use App\Http\Controllers\UserInterfaceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('landing-page');
+// });
 
 Auth::routes();
 
@@ -57,3 +58,10 @@ Route::prefix('krew')->group(function () {
     Route::post('/edit-store', [KrewController::class, 'editStore']);
     Route::get('/delete/{id}', [KrewController::class, 'delete']);
 });
+
+// User Interface
+Route::get('/', [UserInterfaceController::class, 'home']);
+Route::get('/berita', [UserInterfaceController::class, 'berita']);
+Route::get('/kontak', [UserInterfaceController::class, 'kontak']);
+Route::get('/info', [UserInterfaceController::class, 'info']);
+Route::get('/musik', [UserInterfaceController::class, 'musik']);
