@@ -67,3 +67,4 @@ Route::get('/info', [UserInterfaceController::class, 'info']);
 Route::get('/musik', [UserInterfaceController::class, 'musik']);
 
 Route::get('/detail-news/{id}', [UserInterfaceController::class, 'detailNews']);
+// Route::get('/detail-news', [UserInterfaceController::class, 'detailNews']);

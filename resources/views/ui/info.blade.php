@@ -1,22 +1,8 @@
-@extends('main')
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERUMPUN RADIO</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/gambar') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+@include('ui.component.header');
 
 <body>
-    @section('content')
-    @endsection
+
+    @include('ui.component.navbar');
 
     <<!-- Carousel wrapper -->
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
@@ -39,22 +25,23 @@
                 <div class="carousel-item active">
                     <div class="container">
                         <div class="row">
+                            @foreach($data as $row)
                             <div class="col-lg-4">
                                 <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                                        class="card-img-top" alt="Waterfall" />
+                                    <img src="{{ asset('/foto') }}/{{ $row->foto }}"
+                                        class="card-img-top" alt="krew" />
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title">{{ $row->nama; }}</h5>
                                         <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
+                                            {{ $row->jabatan }}
                                         </p>
                                         <a href="#!" class="btn btn-primary">Button</a>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
-                            <div class="col-lg-4 d-none d-lg-block">
+                            {{-- <div class="col-lg-4 d-none d-lg-block">
                                 <div class="card">
                                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
                                         class="card-img-top" alt="Sunset Over the Sea" />
@@ -82,7 +69,8 @@
                                         <a href="#!" class="btn btn-primary">Button</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>
@@ -194,6 +182,146 @@
             <!-- Inner -->
         </div>
         <!-- Carousel wrapper -->
+
+        @include('ui.component.footer');
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+
+        <script>
+            (function($) {
+                "use strict";
+
+                // Sticky Navbar
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 150) {
+                        $('.nav-bar').addClass('nav-sticky');
+                    } else {
+                        $('.nav-bar').removeClass('nav-sticky');
+                    }
+                });
+
+
+                // Dropdown on mouse hover
+                $(document).ready(function() {
+                    function toggleNavbarMethod() {
+                        if ($(window).width() > 768) {
+                            $('.navbar .dropdown').on('mouseover', function() {
+                                $('.dropdown-toggle', this).trigger('click');
+                            }).on('mouseout', function() {
+                                $('.dropdown-toggle', this).trigger('click').blur();
+                            });
+                        } else {
+                            $('.navbar .dropdown').off('mouseover').off('mouseout');
+                        }
+                    }
+                    toggleNavbarMethod();
+                    $(window).resize(toggleNavbarMethod);
+                });
+
+
+                // Back to top button
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 100) {
+                        $('.back-to-top').fadeIn('slow');
+                    } else {
+                        $('.back-to-top').fadeOut('slow');
+                    }
+                });
+                $('.back-to-top').click(function() {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 1500, 'easeInOutExpo');
+                    return false;
+                });
+
+
+                // Top News Slider
+                $('.tn-slider').slick({
+                    autoplay: true,
+                    infinite: true,
+                    dots: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+
+
+                // Category News Slider
+                $('.cn-slider').slick({
+                    autoplay: false,
+                    infinite: true,
+                    dots: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    responsive: [{
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
+
+
+                // Related News Slider
+                $('.sn-slider').slick({
+                    autoplay: false,
+                    infinite: true,
+                    dots: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    responsive: [{
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
+            })(jQuery);
+        </script>
 </body>
 
 </html>

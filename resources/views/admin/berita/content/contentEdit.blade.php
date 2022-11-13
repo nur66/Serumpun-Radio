@@ -221,6 +221,8 @@
 
                     <div class="form-group">
                         <label for="nama">Deskripsi</label>
+                        {{-- <textarea name="deskripsi" id="deskripsi" value="{{ $row->deskripsi }}" class="form-control" placeholder="deskripsi..."
+                        required cols="30" rows="10"></textarea> --}}
                         <input value="{{ $row->deskripsi }}" type="text" name="deskripsi" id="deskripsi"
                             class="form-control" placeholder="tipe..." required>
                     </div>

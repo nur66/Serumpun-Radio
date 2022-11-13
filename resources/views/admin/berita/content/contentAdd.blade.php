@@ -218,8 +218,10 @@
 
                     <div class="form-group">
                         <label for="nama">Deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control" placeholder="deskripsi..."
-                            required>
+                        <textarea name="deskripsi" id="deskripsi" class="form-control" placeholder="deskripsi..."
+                        required cols="30" rows="10"></textarea>
+                        {{-- <input type="text-area" name="deskripsi" class="form-control" placeholder="deskripsi..."
+                            required> --}}
                     </div>
 
                     
