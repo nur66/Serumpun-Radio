@@ -90,6 +90,11 @@ class UserInterfaceController extends Controller
 
         $data = [];
         $detail = Berita::where('id', $id)->first();
+        $politik = Berita::where('kategori_id', 1)->limit(4)->get();
+        $musik = Berita::where('kategori_id', 2)->orderBy('created_at', 'ASC')->limit(4)->get();
+        $olahraga = Berita::where('kategori_id', 5)->limit(4)->get();
+        $ekonomi = Berita::where('kategori_id', 4)->limit(4)->get();
+        $kesehatan = Berita::where('kategori_id', 3)->limit(4)->get();
         // dd($data->judul);
         $headline = Berita::where('tipe', 'Headline News')->orderBy('created_at', 'DESC')->limit(5)->get();
         $populer = Berita::where('tipe', 'Popular News')->orderBy('created_at', 'DESC')->limit(4)->get();
@@ -101,7 +106,19 @@ class UserInterfaceController extends Controller
             'populer' => $populer,
             'lates' => $lates
         ];
-        // dd($data['detail']->judul);
+
+        if($detail->kategori_id == 1){
+            $data['related'] = $politik;
+        }elseif($detail->kategori_id == 2){
+            $data['related'] = $musik;
+        }elseif($detail->kategori_id == 3){
+            $data['related'] = $kesehatan;
+        }elseif($detail->kategori_id == 4){
+            $data['related'] = $ekonomi;
+        }elseif($detail->kategori_id == 5){
+            $data['related'] = $olahraga;
+        }else $data['related'] = $musik;
+
 
         return view('ui.detailNews')->with('data', $data);
         // return view('ui.detailNews');

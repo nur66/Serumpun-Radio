@@ -26,11 +26,29 @@ class HomeController extends Controller
     {
         $data = [];
 
-        $berita = Berita::with([
-            'kategori', 'tipe'
-        ])->get();
+        $data = $politik = $musik = $olahraga = $ekonomi = $kesehatan = $headline = $populer = $lates = [];
+        $politik = Berita::where('kategori_id', 1)->get();
+        $musik = Berita::where('kategori_id', 2)->orderBy('created_at', 'ASC')->get();
+        $olahraga = Berita::where('kategori_id', 5)->get();
+        $ekonomi = Berita::where('kategori_id', 4)->get();
+        $kesehatan = Berita::where('kategori_id', 3)->get();
 
-        return view('layouts.master');
+        $headline = Berita::where('tipe', 'Headline News')->orderBy('created_at', 'DESC')->limit(5)->get();
+        $populer = Berita::where('tipe', 'Popular News')->orderBy('created_at', 'DESC')->get();
+        $lates = Berita::where('tipe', 'Lates News')->orderBy('created_at', 'DESC')->limit(5)->get();
+
+        $berita = Berita::all();
+
+        $data = [
+            'politik' => count($politik),
+            'olahraga' => count($olahraga),
+            'ekonomi' => count($ekonomi),
+            'kesehatan' => count($kesehatan),
+            'musik' => count($musik),
+            'berita' => $berita
+        ];
+
+        return view('layouts.master')->with('data', $data);
     }
 
     public function tesRadio()

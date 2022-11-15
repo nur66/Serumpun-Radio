@@ -4,183 +4,34 @@
 
     @include('ui.component.navbar');
 
-    <<!-- Carousel wrapper -->
-        <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-            <!-- Controls -->
-            <div class="d-flex justify-content-center mb-4">
-                <button class="carousel-control-prev position-relative" type="button"
-                    data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next position-relative" type="button"
-                    data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <!-- Inner -->
-            <div class="carousel-inner py-4">
-                <!-- Single item -->
-                <div class="carousel-item active">
-                    <div class="container">
+    <div class="container">
+        <div class="row">
+            @foreach ($data as $row)
+                <div class="col g-3">
+                    <div class="card bg-white text-light"
+                        style="width:230px; height:280px; box-shadow: 2px 2px 2px rgba(0,0,0,0.8); padding:10px; border:1px solid grey;">
                         <div class="row">
-                            @foreach($data as $row)
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="{{ asset('/foto') }}/{{ $row->foto }}"
-                                        class="card-img-top" alt="krew" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $row->nama; }}</h5>
-                                        <p class="card-text">
-                                            {{ $row->jabatan }}
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
+                            <div class="col">
+                                <img src="{{ asset('/foto') }}/{{ $row->foto }}"
+                                        class="m-2 pb-2" style="width:200px; height:200px;">
                             </div>
-                            @endforeach
-
-                            {{-- <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
-                                        class="card-img-top" alt="Sunset Over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
-                                        class="card-img-top" alt="Sunset over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div> --}}
-
+                            <a href="/landing1" class="btn btn-white btn-md mx-auto m-0 p-0"
+                                style="width:200px; line-height: 0.5em">
+                                <p class="fw-bolder">{{ $row->nama }}</p>
+                            </a>
+                            <a href="/landing1" class="btn btn-white btn-md mx-auto m-0 p-0"
+                                style="width:200px; line-height: 0.1em">
+                                <p class="text-secondary">{{ $row->jabatan }}</p>
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single item -->
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
-                                        class="card-img-top" alt="Fissure in Sandstone" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/185.webp"
-                                        class="card-img-top" alt="Storm Clouds" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/186.webp"
-                                        class="card-img-top" alt="Hot Air Balloons" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single item -->
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/187.webp"
-                                        class="card-img-top" alt="Peaks Against the Starry Sky" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/188.webp"
-                                        class="card-img-top" alt="Bridge Over Water" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/189.webp"
-                                        class="card-img-top" alt="Purbeck Heritage Coast" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Inner -->
+            @endforeach
         </div>
+    </div>
+
+    <<!-- Carousel wrapper -->
+        
         <!-- Carousel wrapper -->
 
         @include('ui.component.footer');
