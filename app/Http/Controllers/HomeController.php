@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -37,7 +38,15 @@ class HomeController extends Controller
         $populer = Berita::where('tipe', 'Popular News')->orderBy('created_at', 'DESC')->get();
         $lates = Berita::where('tipe', 'Lates News')->orderBy('created_at', 'DESC')->limit(5)->get();
 
+        $arrBerita = [];
         $berita = Berita::all();
+        foreach($berita as $row)
+        {
+            $kategori = Kategori::where('id', $row->kategori_id)->first('nama_kategori');
+            $arrBerita = $row;
+            $arrBerita['kategori'] = $kategori->nama_kategori;
+        }
+        // dd($arrBerita);
 
         $data = [
             'politik' => count($politik),

@@ -17,6 +17,7 @@ class UserInterfaceController extends Controller
         $ekonomi = Berita::where('kategori_id', 4)->limit(4)->get();
         $kesehatan = Berita::where('kategori_id', 3)->limit(4)->get();
         $hiburan = Berita::where('kategori_id', 6)->limit(4)->get();
+        $event = Berita::where('kategori_id', 7)->limit(9)->get();
 
         $headline = Berita::where('tipe', 'Headline News')->orderBy('created_at', 'DESC')->limit(4)->get();
         $populer = Berita::where('tipe', 'Popular News')->orderBy('created_at', 'DESC')->limit(4)->get();
@@ -32,7 +33,8 @@ class UserInterfaceController extends Controller
             'hiburan' => $hiburan,
             'headline' => $headline,
             'populer' => $populer,
-            'lates' => $lates
+            'lates' => $lates,
+            'event' => $event
         ];
 
         return view('ui.landing-page')->with('data', $result);

@@ -4,7 +4,7 @@
     @include('ui.component.navbar')
 
     <div class="single-news">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="sn-container">
