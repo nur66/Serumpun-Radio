@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
                     <a href="/" class="nav-item nav-link active">HOME</a>
-                    <a href="/berita" class="nav-item nav-link active">BERITA</a>
+                    {{-- <a href="/berita" class="nav-item nav-link active">BERITA</a> --}}
                     <a href="/musik" class="nav-item nav-link active">MUSIK</a>
                     <a href="/info" class="nav-item nav-link">INFO</a>
                     {{-- <a href="" class="nav-item nav-link">KONTAK</a> --}}
